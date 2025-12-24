@@ -121,14 +121,16 @@ Marathon Application and Management System (User)
 <table><thead>
   <tr>
     <th>협력 모델</th>
-    <th>클래스 모델</th>
+    <th>도메인 모델</th>
   </tr></thead>
 <tbody>
   <tr>
     <td>
       <img height="400" alt="image" src="https://github.com/user-attachments/assets/3bffce32-c2aa-4a22-bfaf-81f7037d9605" />
     </td>
-    <td></td>
+    <td>
+      <img height="400" alt="image" src="https://github.com/user-attachments/assets/0013e399-65cd-4673-9b0f-ef39b0c0ff15" />
+    </td>
   </tr>
 </tbody>
 </table>
