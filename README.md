@@ -1,5 +1,6 @@
-# mams-user
-Marathon Application and Management System (User)
+# MRS
+Marathon Registration System
+마라톤 신청과 관리를 위한 웹 어플리케이션션
 
 ## 제작 배경
 - 마라톤 대회에 신청하려고 했는데, 신청 페이지에서 서버 오류 메시지가 그대로 표시됨.
@@ -91,7 +92,8 @@ Marathon Application and Management System (User)
     
 - Docker
   - 어플리케이션 실행에 필요한 파일들 패키징
-  - 하나의 서버에서 user, admin 컨테이너를 띄워 서버 비용 절감.
+  - ~하나의 서버에서 user, admin 컨테이너를 띄워 서버 비용 절감.~
+    
 - AWS
   - EC2 : user, admin 앱
   - RDB : 신청자 데이터 관리
