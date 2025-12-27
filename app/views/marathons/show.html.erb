@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @marathon %>
+
+<div>
+  <%= link_to "Edit this marathon", edit_marathon_path(@marathon) %> |
+  <%= link_to "Back to marathons", marathons_path %>
+
+  <%= button_to "Destroy this marathon", @marathon, method: :delete %>
+</div>

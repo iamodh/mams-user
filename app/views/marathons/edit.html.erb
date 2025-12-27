@@ -1,0 +1,12 @@
+<% content_for :title, "Editing marathon" %>
+
+<h1>Editing marathon</h1>
+
+<%= render "form", marathon: @marathon %>
+
+<br>
+
+<div>
+  <%= link_to "Show this marathon", @marathon %> |
+  <%= link_to "Back to marathons", marathons_path %>
+</div>
