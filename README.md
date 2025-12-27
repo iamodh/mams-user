@@ -51,7 +51,8 @@ Marathon Application and Management System (User)
 ### 보안
 - 신청자의 개인 정보 보호가 우선되어야 함.
 
-  - 신청자(user)와 관리자(admin) 어플리케이션을 분리 제작 후, 관리자에게 직접 admin 어플리케이션 제공.
+  - ~신청자(user)와 관리자(admin) 어플리케이션을 분리 제작 후, 관리자에게 직접 admin 어플리케이션 제공.~
+  - 데이터베이스 모델 공유와 코드 재사용을 위해 모놀리스 구조 선택. (추가 확장시 분라 고려.)
 - Rails가 제공하는 기본 보안 솔루션 공부 후 보안 사각지대 확인 필요.
 
 ### 실시간 기능 제공
@@ -97,26 +98,30 @@ Marathon Application and Management System (User)
   - Route55 : 도메인 관리
 
 ## 계획
+> 목표 : 1/3(토)까지 MVP 구현, 기획서 작성 후 대회 관계자에게 전달
 
-- 12/22 (월), 12/23 (화)
+- 12/22(월), 12/23(화)
   - 요구사항 정의, 기술 스택 조사, 개발 계획 수립
 
-- 12/24 (수)
+- 12/24(수)
   - user 설계
   - admin 설계
 
-- 12/25 (목)
+- 12/25(목), 12/26(금)
+  - 개인 일정
+
+- 12/27(토), 12/28(일), 12/29(월)
   - user MVP 구현
-- 12/26 (금)
+
+- 12/30(화), 12/31(수)
   - admin MVP 구현
-
-- 12/27 (토), 12/28 (일)
-  - 1차 MVP 배포
-
-- 12/29 (월)
-  - 1차 블라인드 피드백
-  - 피드백 적용
-
+  
+- 1/1(목)
+  - 배포
+  
+- 1/2(금)
+  - 기획서 작성
+  
 ## 설계
 <table><thead>
   <tr>
@@ -134,3 +139,7 @@ Marathon Application and Management System (User)
   </tr>
 </tbody>
 </table>
+
+## 와이어프레임
+<img width="3934" height="1855" alt="image" src="https://github.com/user-attachments/assets/0d63d94c-8311-435f-ac49-02957cfe2d35" />
+
