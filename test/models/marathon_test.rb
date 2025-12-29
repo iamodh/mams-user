@@ -1,6 +1,6 @@
 require "test_helper"
 
-class MarathonTest < ActiveSupport::TestCase  
+class MarathonTest < ActiveSupport::TestCase
   def setup
     @marathon = Marathon.new(
       name: "정상 대회",
@@ -12,18 +12,18 @@ class MarathonTest < ActiveSupport::TestCase
   test "모든 필수 값이 정상이면 유효하다" do
     assert @marathon.valid?
   end
-  
+
 
   test "접수 종료일이 시작일보다 빠르면 오류가 발생한다" do
     @marathon.entry_end = @marathon.entry_start - 1.day
-    
+
     assert_not @marathon.valid?
     assert_includes @marathon.errors[:entry_end], "must be after the entry start date"
   end
 
   test "이름이 빈 경우 오류가 발생한다" do
     @marathon.name = ""
-    
+
     assert_not @marathon.valid?
     assert_includes @marathon.errors[:name], "can't be blank"
   end
