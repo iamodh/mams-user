@@ -3,21 +3,18 @@ require "test_helper"
 class CoursesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @course = courses(:one)
+    @marathon = @course.marathon
   end
 
-  test "should get index" do
-    get courses_url
-    assert_response :success
-  end
 
   test "should get new" do
-    get new_course_url
+    get new_marathon_course_url(@marathon)
     assert_response :success
   end
 
   test "should create course" do
     assert_difference("Course.count") do
-      post courses_url, params: { course: { capacity: @course.capacity, marathon_id: @course.marathon_id, name: @course.name } }
+      post marathon_courses_url(@marathon), params: { course: { capacity: @course.capacity, marathon_id: @course.marathon_id, name: @course.name } }
     end
 
     assert_redirected_to course_url(Course.last)
@@ -43,6 +40,6 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
       delete course_url(@course)
     end
 
-    assert_redirected_to courses_url
+    assert_redirected_to marathon_url(@marathon)
   end
 end

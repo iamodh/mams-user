@@ -1,10 +1,7 @@
 class CoursesController < ApplicationController
+  before_action :set_marathon, only: %i[ new create ]
   before_action :set_course, only: %i[ show edit update destroy ]
 
-  # GET /courses or /courses.json
-  def index
-    @courses = Course.all
-  end
 
   # GET /courses/1 or /courses/1.json
   def show
@@ -12,7 +9,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/new
   def new
-    @course = Course.new
+    @course = @marathon.courses.build
   end
 
   # GET /courses/1/edit
@@ -21,7 +18,7 @@ class CoursesController < ApplicationController
 
   # POST /courses or /courses.json
   def create
-    @course = Course.new(course_params)
+    @course = @marathon.courses.build(course_params)
 
     respond_to do |format|
       if @course.save
@@ -52,7 +49,7 @@ class CoursesController < ApplicationController
     @course.destroy!
 
     respond_to do |format|
-      format.html { redirect_to courses_path, notice: "Course was successfully destroyed.", status: :see_other }
+      format.html { redirect_to marathon_path(@marathon), notice: "Course was successfully destroyed.", status: :see_other }
       format.json { head :no_content }
     end
   end
@@ -60,11 +57,16 @@ class CoursesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
-      @course = Course.find(params.expect(:id))
+      @course = Course.find(params[:id])
+      @marathon = @course.marathon
+    end
+
+    def set_marathon
+      @marathon = Marathon.find(params[:marathon_id])
     end
 
     # Only allow a list of trusted parameters through.
     def course_params
-      params.expect(course: [ :marathon_id, :name, :capacity ])
+      params.expect(course: [ :name, :capacity ])
     end
 end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :marathons do
-    resources :courses, shallow: true do
+    resources :courses, shallow: true, except: [ :index ] do
       resources :registrations, only: [ :new, :create ]
     end
   end
