@@ -14,4 +14,9 @@
     <%= marathon.entry_end %>
   </div>
 
+  <div>
+    <% unless marathon.open? %>
+      <span style="color: red;">지원이 마감되었습니다.</span>
+    <% end %>
+  </div>
 </div>

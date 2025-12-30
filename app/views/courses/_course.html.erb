@@ -9,7 +9,9 @@
     <div>
       <%# 정원이 꽉 찼을 경우 버튼 비활성화 필요 %>
       <%= link_to "Show this course", course_path(course) %>
-      <%= link_to "신청하기", new_course_registration_path(course) %>
+      <% if course.marathon.open? %>
+        <%= link_to "신청하기", new_course_registration_path(course) %>
+      <% end %>
     </div>
   <% end %>
 
