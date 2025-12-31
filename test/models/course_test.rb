@@ -2,10 +2,11 @@ require "test_helper"
 
 class CourseTest < ActiveSupport::TestCase
   def setup
+    @marathon = marathons(:one)
     @course = Course.new(
-      name: "코스 이름",
+      name: "10km",
       capacity: 10,
-      marathon: Marathon.new
+      marathon: @marathon
     )
   end
 
@@ -32,6 +33,20 @@ class CourseTest < ActiveSupport::TestCase
 
     assert_not @course.valid?
     assert_includes @course.errors[:name], "length must be 1 ~ 10"
+  end
+
+  test "같은 마라톤 내에서 코스 이름은 유일해야 한다" do
+    duplicate_course = @course.dup
+    duplicate_course.save!
+
+    new_course = Course.new(
+      name: @course.name,
+      capacity: 50,
+      marathon: @marathon
+    )
+
+    assert_not new_course.valid?
+    assert_includes new_course.errors[:name], "already exists in this marathon"
   end
 
   # test "모집 인원이 모두 찼을 경우 마감 상태다" do
