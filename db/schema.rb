@@ -29,5 +29,19 @@ ActiveRecord::Schema[8.1].define(version: 2025_12_31_035633) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "registrations", force: :cascade do |t|
+    t.string "address"
+    t.integer "course_id", null: false
+    t.datetime "created_at", null: false
+    t.date "date_of_birth"
+    t.string "name"
+    t.string "phone"
+    t.integer "status"
+    t.datetime "updated_at", null: false
+    t.index ["course_id", "phone"], name: "index_registrations_on_course_id_and_phone", unique: true
+    t.index ["course_id"], name: "index_registrations_on_course_id"
+  end
+
   add_foreign_key "courses", "marathons"
+  add_foreign_key "registrations", "courses"
 end
