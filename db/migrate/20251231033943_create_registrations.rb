@@ -10,7 +10,7 @@ class CreateRegistrations < ActiveRecord::Migration[8.1]
 
       t.timestamps
 
-      t.index [:course_id, :phone], unique: true
+      t.index [ :course_id, :phone ], unique: true
     end
   end
 end

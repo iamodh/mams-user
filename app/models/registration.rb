@@ -5,5 +5,4 @@ class Registration < ApplicationRecord
 
   validates :name, :date_of_birth, :phone, presence: true
   validates :phone, uniqueness: { scope: :course_id, message: "이미 신청하신 내역이 있습니다." }
-
 end

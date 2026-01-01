@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
   before_action :set_course, only: %i[ new ]
-  
+
   def new
     @registration = @course.registrations.build
   end
